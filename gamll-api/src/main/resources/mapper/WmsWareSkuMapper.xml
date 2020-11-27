@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.gmall.mapper.WmsWareSkuMapper">
+  <resultMap id="BaseResultMap" type="com.example.gmall.entity.WmsWareSku">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="sku_id" jdbcType="BIGINT" property="skuId" />
+    <result column="warehouse_id" jdbcType="BIGINT" property="warehouseId" />
+    <result column="stock" jdbcType="INTEGER" property="stock" />
+    <result column="stock_name" jdbcType="VARCHAR" property="stockName" />
+    <result column="stock_locked" jdbcType="INTEGER" property="stockLocked" />
+  </resultMap>
+</mapper>

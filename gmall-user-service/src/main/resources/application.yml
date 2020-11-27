@@ -1,0 +1,29 @@
+server:
+  port: 8070
+
+spring:
+  datasource:
+    url: jdbc:mysql:/l82.92.61.75:3306/gmall?serverTimezone=UTC&useSSL=false
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root
+
+dubbo:
+  application:
+    name: user-service
+  registry:
+    address: zookeeper://182.92.61.75:2181
+  scan:
+    base-packages: com.example.gmall
+
+# mybatis
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+
+
+logging:
+  level:
+    com.example.gmall.mapper: debug
+
