@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:mysql:/l82.92.61.75:3306/gmall?serverTimezone=UTC&useSSL=false
+    url: jdbc:mysql://182.92.61.75:3306/gmall?serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true&autoReconnect=true&characterEncoding=utf-8
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: root
@@ -18,4 +18,4 @@ dubbo:
 
 logging:
   level:
-    root: info
+    com.example.gmall: debug

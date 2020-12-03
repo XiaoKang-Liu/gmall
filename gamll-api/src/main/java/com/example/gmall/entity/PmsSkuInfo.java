@@ -1,6 +1,7 @@
 package com.example.gmall.entity;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.*;
 
 @Table(name = "pms_sku_info")
@@ -57,6 +58,24 @@ public class PmsSkuInfo implements Serializable {
      */
     @Column(name = "sku_default_img")
     private String skuDefaultImg;
+
+    /**
+     * sku图片列表
+     */
+    @Transient
+    private List<PmsSkuImage> skuImageList;
+
+    /**
+     * sku对应的平台属性
+     */
+    @Transient
+    private List<PmsSkuAttrValue> skuAttrValueList;
+
+    /**
+     * 销售属性
+     */
+    @Transient
+    private List<PmsSkuSaleAttrValue> skuSaleAttrValueList;
 
     private static final long serialVersionUID = 1L;
 
@@ -218,23 +237,27 @@ public class PmsSkuInfo implements Serializable {
         this.skuDefaultImg = skuDefaultImg;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName());
-        sb.append(" [");
-        sb.append("Hash = ").append(hashCode());
-        sb.append(", id=").append(id);
-        sb.append(", productId=").append(productId);
-        sb.append(", price=").append(price);
-        sb.append(", skuName=").append(skuName);
-        sb.append(", skuDesc=").append(skuDesc);
-        sb.append(", weight=").append(weight);
-        sb.append(", tmId=").append(tmId);
-        sb.append(", catalog3Id=").append(catalog3Id);
-        sb.append(", skuDefaultImg=").append(skuDefaultImg);
-        sb.append(", serialVersionUID=").append(serialVersionUID);
-        sb.append("]");
-        return sb.toString();
+    public List<PmsSkuImage> getSkuImageList() {
+        return skuImageList;
+    }
+
+    public void setSkuImageList(List<PmsSkuImage> skuImageList) {
+        this.skuImageList = skuImageList;
+    }
+
+    public List<PmsSkuAttrValue> getSkuAttrValueList() {
+        return skuAttrValueList;
+    }
+
+    public void setSkuAttrValueList(List<PmsSkuAttrValue> skuAttrValueList) {
+        this.skuAttrValueList = skuAttrValueList;
+    }
+
+    public List<PmsSkuSaleAttrValue> getSkuSaleAttrValueList() {
+        return skuSaleAttrValueList;
+    }
+
+    public void setSkuSaleAttrValueList(List<PmsSkuSaleAttrValue> skuSaleAttrValueList) {
+        this.skuSaleAttrValueList = skuSaleAttrValueList;
     }
 }

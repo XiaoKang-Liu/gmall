@@ -8,3 +8,13 @@ dubbo:
     address: zookeeper://182.92.61.75:2181
   scan:
     base-packages: com.example.gmall
+
+fdfs:
+  connect-timeout: 600
+  so-timeout: 1500
+  tracker-list: 182.92.61.75:22122
+  pool:
+    jmx-enabled: false
+  thumb-image:
+    height: 100
+    width: 100

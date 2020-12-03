@@ -1,6 +1,7 @@
 package com.example.gmall.entity;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.*;
 
 @Table(name = "pms_base_attr_info")
@@ -27,6 +28,12 @@ public class PmsBaseAttrInfo implements Serializable {
      */
     @Column(name = "is_enabled")
     private String isEnabled;
+
+    /**
+     * 属性值列表
+     */
+    @Transient
+    private List<PmsBaseAttrValue> attrValueList;
 
     private static final long serialVersionUID = 1L;
 
@@ -98,18 +105,22 @@ public class PmsBaseAttrInfo implements Serializable {
         this.isEnabled = isEnabled;
     }
 
+    public List<PmsBaseAttrValue> getAttrValueList() {
+        return attrValueList;
+    }
+
+    public void setAttrValueList(List<PmsBaseAttrValue> attrValueList) {
+        this.attrValueList = attrValueList;
+    }
+
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName());
-        sb.append(" [");
-        sb.append("Hash = ").append(hashCode());
-        sb.append(", id=").append(id);
-        sb.append(", attrName=").append(attrName);
-        sb.append(", catalog3Id=").append(catalog3Id);
-        sb.append(", isEnabled=").append(isEnabled);
-        sb.append(", serialVersionUID=").append(serialVersionUID);
-        sb.append("]");
-        return sb.toString();
+        return "PmsBaseAttrInfo{" +
+                "id=" + id +
+                ", attrName='" + attrName + '\'' +
+                ", catalog3Id=" + catalog3Id +
+                ", isEnabled='" + isEnabled + '\'' +
+                ", attrValueList=" + attrValueList +
+                '}';
     }
 }

@@ -1,6 +1,7 @@
 package com.example.gmall.entity;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.*;
 
 @Table(name = "pms_product_sale_attr")
@@ -30,6 +31,12 @@ public class PmsProductSaleAttr implements Serializable {
      */
     @Column(name = "sale_attr_name")
     private String saleAttrName;
+
+    /**
+     * 销售属性值列表
+     */
+    @Transient
+    private List<PmsProductSaleAttrValue> spuSaleAttrValueList;
 
     private static final long serialVersionUID = 1L;
 
@@ -105,18 +112,11 @@ public class PmsProductSaleAttr implements Serializable {
         this.saleAttrName = saleAttrName;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName());
-        sb.append(" [");
-        sb.append("Hash = ").append(hashCode());
-        sb.append(", id=").append(id);
-        sb.append(", productId=").append(productId);
-        sb.append(", saleAttrId=").append(saleAttrId);
-        sb.append(", saleAttrName=").append(saleAttrName);
-        sb.append(", serialVersionUID=").append(serialVersionUID);
-        sb.append("]");
-        return sb.toString();
+    public List<PmsProductSaleAttrValue> getSpuSaleAttrValueList() {
+        return spuSaleAttrValueList;
+    }
+
+    public void setSpuSaleAttrValueList(List<PmsProductSaleAttrValue> spuSaleAttrValueList) {
+        this.spuSaleAttrValueList = spuSaleAttrValueList;
     }
 }

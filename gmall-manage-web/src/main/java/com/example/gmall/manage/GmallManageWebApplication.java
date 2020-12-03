@@ -9,7 +9,7 @@ public class GmallManageWebApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(GmallManageWebApplication.class, args);
-        System.out.println("GmallManageWeb started......");
+        System.out.println("GmallManageWeb started.....");
     }
 
 }

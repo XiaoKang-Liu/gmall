@@ -1,6 +1,7 @@
 package com.example.gmall.entity;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.*;
 
 @Table(name = "pms_product_info")
@@ -36,6 +37,16 @@ public class PmsProductInfo implements Serializable {
      */
     @Column(name = "tm_id")
     private Long tmId;
+
+    /**
+     * 商品图片
+     */
+    private List<PmsProductImage> spuImageList;
+
+    /**
+     * 商品销售属性
+     */
+    private List<PmsProductSaleAttr> spuSaleAttrList;
 
     private static final long serialVersionUID = 1L;
 
@@ -129,19 +140,32 @@ public class PmsProductInfo implements Serializable {
         this.tmId = tmId;
     }
 
+    public List<PmsProductImage> getSpuImageList() {
+        return spuImageList;
+    }
+
+    public void setSpuImageList(List<PmsProductImage> spuImageList) {
+        this.spuImageList = spuImageList;
+    }
+
+    public List<PmsProductSaleAttr> getSpuSaleAttrList() {
+        return spuSaleAttrList;
+    }
+
+    public void setSpuSaleAttrList(List<PmsProductSaleAttr> spuSaleAttrList) {
+        this.spuSaleAttrList = spuSaleAttrList;
+    }
+
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName());
-        sb.append(" [");
-        sb.append("Hash = ").append(hashCode());
-        sb.append(", id=").append(id);
-        sb.append(", productName=").append(productName);
-        sb.append(", description=").append(description);
-        sb.append(", catalog3Id=").append(catalog3Id);
-        sb.append(", tmId=").append(tmId);
-        sb.append(", serialVersionUID=").append(serialVersionUID);
-        sb.append("]");
-        return sb.toString();
+        return "PmsProductInfo{" +
+                "id=" + id +
+                ", productName='" + productName + '\'' +
+                ", description='" + description + '\'' +
+                ", catalog3Id=" + catalog3Id +
+                ", tmId=" + tmId +
+                ", spuImageList=" + spuImageList +
+                ", spuSaleAttrList=" + spuSaleAttrList +
+                '}';
     }
 }
